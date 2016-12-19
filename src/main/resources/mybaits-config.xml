@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="jdbc.properties"/>
+    <environments default="local">
+        <environment id="local">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="${local.jdbc.url}"/>
+                <property name="username" value="${local.jdbc.username}"/>
+                <property name="password" value="${local.jdbc.password}"/>
+            </dataSource>
+        </environment>
+
+        <environment id="online">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.localhostDriver"/>
+                <property name="url" value="${online.jdbc.url}"/>
+                <property name="username" value="${online.jdbc.username}"/>
+                <property name="password" value="${online.jdbc.password}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <mappers>
+        <mapper resource="com/iwaimai/qa/waterfall/dao/userMapper.xml"/>
+    </mappers>
+
+</configuration>
