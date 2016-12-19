@@ -6,7 +6,7 @@
     <packaging>war</packaging>
 
     <name>waterfall</name>
-    <groupId>com.ling</groupId>
+    <groupId>com.iwaimai</groupId>
     <artifactId>waterfall</artifactId>
     <version>1.0-SNAPSHOT</version>
 
