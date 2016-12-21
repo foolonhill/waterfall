@@ -16,19 +16,19 @@ public class PropertiesUtil {
      */
     public static void writeData(String filePath, String key, String value) {
         //获取绝对路径
-//        filePath = PropertiesUtil.class.getResource("/" + filePath).toString();
+        String path = PropertiesUtil.class.getClassLoader().getResource("/" + filePath).getPath();
 //        截掉路径的”file:/“前缀
 //        filePath = filePath.substring(6);
         Properties prop = new Properties();
         try {
-            File file = new File(filePath);
+            File file = new File(path);
             if (!file.exists())
                 return;
             InputStream fis = new FileInputStream(file);
             prop.load(fis);
             //一定要在修改值之前关闭fis
             fis.close();
-            OutputStream fos = new FileOutputStream(filePath);
+            OutputStream fos = new FileOutputStream(path);
             prop.setProperty(key, value);
             //保存，并加入注释
             prop.store(fos, "Update '" + key + "' value");

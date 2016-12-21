@@ -18,12 +18,37 @@
 
     <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀(如果最后一个还是表示文件夹,则最后的斜杠不要漏了) -->
     <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
-    <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--可以使用jstl标签-->
-        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+    <!--<bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>-->
+
+    <!--velocity-->
+    <!--<bean id="defaultViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+        &lt;!&ndash;<property name="prefix" value="/WEB-INF/view/"/>&ndash;&gt;
+        <property name="suffix" value=".html"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="requestContextAttribute" value="req"/>             &lt;!&ndash; 这个属性很重要 &ndash;&gt;
     </bean>
+    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/WEB-INF/view/"/>
+        &lt;!&ndash;<property name="configLocation" value="classpath:velocity.properties" />&ndash;&gt;
+        <property name="velocityProperties">
+            <props>
+                <prop key="input.encodding">UTF-8</prop>
+                <prop key="output.encoding">UTF-8</prop>
+            </props>
+        </property>
+    </bean>-->
+
+    <bean id="stringConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/plain;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
 
     <!--bootstrap静态资源-->
     <mvc:resources mapping="/css/**" location="/WEB-INF/static/css/" />

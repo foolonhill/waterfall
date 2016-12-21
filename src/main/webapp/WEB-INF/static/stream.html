@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" contentType="text/html;charset=UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <title>数据迁移</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="./js/jquery-3.1.1.min.js"></script>
+
+    <script type="javascript">
+
+        function requestJson() {
+            var srcDb = document.get.getElementsByName("srcDb").value;
+            var destIp = document.get.getElementsByName("destIp").value;
+            var destPort = document.getElementsByName("destPort").value;
+            var destUser = document.getElementsByName("destUser").value;
+            var destPassword = document.get.getElementsByName("destPassword").value;
+            var destDb = document.get.getElementsByName("destDb").value;
+
+            var jsonData = {
+                "srcDb" : srcDb,
+                "destIp" : destIp,
+                "destPort" : destPort,
+                "destUser" : destUser,
+                "destPassword" : destPassword,
+                "destDb" : destDb
+            };
+            $.ajax({
+                type : 'post',
+                url : '${pageContext.request.contextPath }/api/stream.action',
+                contentType : 'application/json;charset=utf-8',
+                data : JSON.stringify(jsonData),
+                dataType : 'json',
+                success : function (response) {
+                    alert("Result: " + response.status);
+                }
+
+            });
+        }
+        
+        function sqlImport() {
+            var ip = document.get.getElementsByName("id").value;
+            var port = document.getElementsByName("name").value;
+            var userName = document.getElementsByName("name").value;
+            var password = document.get.getElementsByName("password").value;
+            var database = document.get.getElementsByName("database").value;
+
+            if (ip == "") {
+                alert("请输入数据库IP");
+                return;
+            }
+            if (port == "") {
+                alert("请输入数据库端口");
+                return;
+            }
+            if (userName == "") {
+                alert("请输入数据库用户名");
+                return;
+            }
+            if (password == "") {
+                alert("请输入数据库密码");
+                return;
+            }
+            if (database == "") {
+                alert("请输入数据库库名");
+                return;
+            }
+
+
+            var form = $("mysqlForm");
+//            var form = document.forms[0];
+            form.action = "${pageContext.request.contextPath}/stream";
+            form.method = "post";
+            form.submit();
+
+//            $("mysqlForm").submit();
+        }
+    </script>
+</head>
+<body>
+<form class="form-mysql" role="form" id="mysqlForm" method="post">
+    <h1>***源数据库***</h1>
+    <p class="form-mysql-heading">源数据库的表</p>
+    <%--<input type="srcDb" class="form-control" name="srcDb" placeholder="srcDb" required autofocus>--%>
+    <select name="srcTable">
+        <option value="driver">driver</option>
+        <option value="order">order</option>
+        <option value="strategy">strategy</option>
+    </select>
+
+    <h2>***目的数据库***</h2>
+    <p class="form-mysql-heading">数据库IP</p>
+    <input type="ip" class="form-control" name="destIp" placeholder="ip" required>
+    <p class="form-mysql-heading">数据库Port</p>
+    <input type="port" class="form-control" name="destPort" placeholder="port" required>
+    <p class="form-mysql-heading">数据库username</p>
+    <input type="username" class="form-control" name="destUser" placeholder="username" required>
+    <p class="form-mysql-heading">数据库password</p>
+    <input type="password" class="form-control" name="destPassword" placeholder="password" required>
+    <p class="form-mysql-heading">数据库database</p>
+    <input type="database" class="form-control" name="destDb" placeholder="database" required>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return requestJson()">导入</button>
+    <span></span>
+</form>
+
+<!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<!--Include all compiled plugins (below), or include individual files as needed-->
+<script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>

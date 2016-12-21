@@ -45,6 +45,7 @@
 
 
             var form = $("mysqlForm");
+//            var form = document.forms[0];
             form.action = "${pageContext.request.contextPath}/stream";
             form.method = "post";
             form.submit();
@@ -87,6 +88,7 @@
             </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return sqlImport()">导入</button>
+
     </form>
 
 </div> <!-- /container -->

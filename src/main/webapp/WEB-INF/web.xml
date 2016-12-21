@@ -28,7 +28,7 @@
 
     <!-- Servlet Filters ================================================ -->
 
-    <servlet>
+    <!--<servlet>
         <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -37,22 +37,42 @@
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>restAppServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>staticAppServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <!-- 静态资源 Mapping （缺点：对不同格式文件需要增加配置） -->
+    <servlet-mapping>
+        <servlet-name>staticAppServlet</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>staticAppServlet</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>staticAppServlet</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>staticAppServlet</servlet-name>
+        <url-pattern>*.png</url-pattern>
     </servlet-mapping>
 
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>spring</servlet-name>-->
-        <!--<url-pattern>*.css</url-pattern>-->
-    <!--</servlet-mapping>-->
-
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>spring</servlet-name>-->
-        <!--<url-pattern>*.html</url-pattern>-->
-    <!--</servlet-mapping>-->
-
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>spring</servlet-name>-->
-        <!--<url-pattern>*.js</url-pattern>-->
-    <!--</servlet-mapping>-->
+    <!-- REST API Mapping -->
+    <servlet-mapping>
+        <servlet-name>restAppServlet</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
 
     <filter>
         <filter-name>encodingFilter</filter-name>
