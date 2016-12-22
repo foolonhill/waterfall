@@ -19,22 +19,28 @@
     <!-- 默认的注解映射的支持 -->
     <mvc:annotation-driven />
 
+    <!--<mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="com.web.converter.JsonRequestMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=utf-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>-->
+
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="com.iwaimai.qa.waterfall.controller" />
 
-    <!-- 配置Jackson，用于编写REST API时，将Java Object映射成Json Obejct-->
-    <!--<bean id="mappingJacksonHttpMessageConverter"
-          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <bean class="org.springframework.http.MediaType">
-                    <constructor-arg index="0" value="application" />
-                    <constructor-arg index="1" value="json" />
-                    <constructor-arg index="2" value="UTF-8" />
-                </bean>
-            </list>
-        </property>
-    </bean>-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+        <!--<property name="messageConverters">-->
+            <!--<list>-->
+                <!--<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
 </beans>

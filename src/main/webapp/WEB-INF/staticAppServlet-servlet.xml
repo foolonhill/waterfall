@@ -16,6 +16,7 @@
              http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
     <!-- 配置静态资源的映射路径 -->
-    <mvc:resources location="static/" mapping="/**"/>
+    <!--<mvc:resources location="static/" mapping="/**"/>-->
+    <mvc:resources location="/WEB-INF/static/" mapping="/static/**"/>
 
 </beans>
