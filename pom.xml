@@ -73,16 +73,16 @@
         <!-- spring end -->
 
         <!-- velocity begin -->
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>1.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-tools</artifactId>
-            <version>2.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.velocity</groupId>-->
+            <!--<artifactId>velocity</artifactId>-->
+            <!--<version>1.7</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.velocity</groupId>-->
+            <!--<artifactId>velocity-tools</artifactId>-->
+            <!--<version>2.0</version>-->
+        <!--</dependency>-->
         <!--velocity end-->
 
         <dependency>
@@ -91,7 +91,7 @@
             <version>1.2.17</version>
         </dependency>
 
-        <!-- jackson相关，必须有 -->
+        <!-- jackson相关, 用于转换json串到java对象 -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

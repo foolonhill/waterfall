@@ -12,8 +12,8 @@ import java.util.Map;
 public class Response {
 
     public enum Status {
-        SUCCESS(1001, "success"),
-        FAILURE(2001, "failure");
+        SUCCESS(1, "success"),
+        FAILURE(0, "failure");
 
         Status(int code, String desc) {
             this.code = code;

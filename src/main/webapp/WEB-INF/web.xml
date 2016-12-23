@@ -15,67 +15,22 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-
-<!--
-  - This is the Cocoon web-app configurations file
-  -
-  - $Id$
-  -->
 <web-app version="2.4"
          xmlns="http://java.sun.com/xml/ns/j2ee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-    <!-- Servlet Filters ================================================ -->
-
-    <!--<servlet>
-        <servlet-name>spring</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>spring</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>-->
-
-
     <!-- REST API Mapping -->
     <servlet>
-        <servlet-name>restAppServlet</servlet-name>
+        <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>restAppServlet</servlet-name>
+        <servlet-name>spring</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
-
-
-    <!-- 静态资源 Mapping （缺点：对不同格式文件需要增加配置） -->
-    <!--<servlet>-->
-        <!--<servlet-name>staticAppServlet</servlet-name>-->
-        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
-        <!--<load-on-startup>2</load-on-startup>-->
-    <!--</servlet>-->
-
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>staticAppServlet</servlet-name>-->
-        <!--<url-pattern>*.html</url-pattern>-->
-    <!--</servlet-mapping>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>staticAppServlet</servlet-name>-->
-        <!--<url-pattern>*.js</url-pattern>-->
-    <!--</servlet-mapping>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>staticAppServlet</servlet-name>-->
-        <!--<url-pattern>*.css</url-pattern>-->
-    <!--</servlet-mapping>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>staticAppServlet</servlet-name>-->
-        <!--<url-pattern>*.png</url-pattern>-->
-    <!--</servlet-mapping>-->
 
 
     <!-- 添加字符过滤集 -->
